@@ -1,0 +1,29 @@
+package com.cetpa;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository (value="repository")
+public class ProductRepo 
+{
+    @Autowired
+    private JdbcTemplate template; 
+    
+    public ProductRepo() {
+    	System.out.println("object created");
+    }
+     public void Saverecord( Product p1)
+     {
+    	  
+    	 String query="insert into productinfo value(?,?,?,?)";
+    	  Object[] data= {p1.getPid(),p1.getName(),p1.getBrand(),p1.getPrice()};
+    	  template.update(query,(ps) -> {;
+    	  ps.setInt(1, );
+    	  }
+    	  System.out.println("Data Saved");
+    	 
+     }
+    
+    }
+

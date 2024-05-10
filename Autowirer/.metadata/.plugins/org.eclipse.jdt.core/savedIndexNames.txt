@@ -1,0 +1,4 @@
+INDEX VERSION 1.134+D:\Ankit Java\Spring Practice\dependency-injection\.metadata\.plugins\org.eclipse.jdt.core
+1389131183.index
+1865797976.index
+2756308033.index

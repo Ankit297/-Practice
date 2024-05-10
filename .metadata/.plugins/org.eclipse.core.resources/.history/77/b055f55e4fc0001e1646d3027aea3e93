@@ -1,0 +1,40 @@
+package com.cetpa;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.stereotype.Repository;
+
+@Repository (value="repository")
+public class ProductRepo 
+{
+    @Autowired
+    private JdbcTemplate template; 
+    
+    public ProductRepo() {
+    }
+     public void Saverecord( Product p1)
+     {
+    	  
+    	 String query="insert into productinfo value(?,?,?,?)";
+//    	  Object[] data = {p1.getPid(),p1.getName(),p1.getBrand(),p1.getPrice()};
+    	  template.update(query,(ps) -> {
+    	  ps.setInt(1, p1.getPid());
+    	  ps.setString(2, p1.getName());
+    	  ps.setString(3, p1.getBrand());
+    	  ps.setInt(4,p1.getPrice());
+    	  
+    	  });
+    	  System.out.println("Data Saved........."); 	 
+     }
+     
+     public void Deleterecord(int pid) {
+    	 String qurey="delete from productinfo  where pid = ?";
+    	 Object[] data= {pid};
+    	 template.update(qurey,data);
+    	 System.out.println("Data Delete from Database......");	 
+     }
+     
+     
+    
+    }
+
